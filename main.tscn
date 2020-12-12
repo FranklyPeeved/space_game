@@ -115,7 +115,6 @@ Enemy = ExtResource( 11 )
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="Light2D" type="Light2D" parent="HUD"]
-visible = false
 position = Vector2( 8393.3, 7025.85 )
 scale = Vector2( 16.3912, 13.7224 )
 texture = ExtResource( 8 )
@@ -132,6 +131,9 @@ custom_styles/bg = SubResource( 2 )
 max_value = 3.0
 value = 3.0
 percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="health" type="ProgressBar" parent="HUD"]
 anchor_left = 1.0

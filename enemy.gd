@@ -19,6 +19,7 @@ func _process(delta):
 		Bullet.instance().init(self, 3000)
 
 func _on_enemy_area_entered(area):
+	monitorable = false
 	$explosion.play()
 	$AnimationPlayer.play("fade")
 	$CollisionPolygon2D.queue_free()
