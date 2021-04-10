@@ -28,7 +28,10 @@ func gamepad(delta):
 
 
 func _on_player_area_entered(area):
-	health -= 1
+	if "DAMAGE" in area:
+		health -= area.DAMAGE
+	else:
+		health -= 1
 	get_node("../HUD/health").value = health
 	if health <= 0:
 		get_tree().reload_current_scene()
@@ -36,3 +39,18 @@ func _on_player_area_entered(area):
 	modulate = Color(1000, 0, 0, 1)
 	yield(get_tree().create_timer(1.0), "timeout")
 	modulate = Color(1, 1, 1, 1) 
+
+var virtual_stick_origin = Vector2.ZERO
+
+func _input(event):
+	if event is InputEventScreenTouch:
+		if event.position.x < get_viewport().size.x/2.0:
+			if event.pressed:
+				virtual_stick_origin = event.position
+		else:
+			if event.pressed:
+				Input.action_press("fire")
+			else:
+				Input.action_release("fire")
+	elif event is InputEventScreenDrag and event.position.x < get_viewport().size.x/2.0:
+		virtual_stick_direction =  (event.position - virtual_stick_origin).normalized()

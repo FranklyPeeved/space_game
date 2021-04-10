@@ -3,6 +3,8 @@ extends Area2D
 export var VELOCITY = 1000.0
 export var TURNING = 0.7
 export var FIRE_RATE = 0.01
+export var health = 1
+export var DAMAGE = 1
 
 var Bullet = preload("res://enemy_bullet.tscn")
 onready var player = get_node("/root/main/player")
@@ -19,7 +21,16 @@ func _process(delta):
 		Bullet.instance().init(self, 3000)
 
 func _on_enemy_area_entered(area):
-	monitorable = false
+	if "DAMAGE" in area:
+		health -= area.DAMAGE
+	else:
+		health -= 1
+	if health <= 0:
+		die()
+	
+func die():	
+	set_deferred("monitorable", false)
+	FIRE_RATE = 0
 	$explosion.play()
 	$AnimationPlayer.play("fade")
 	$CollisionPolygon2D.queue_free()

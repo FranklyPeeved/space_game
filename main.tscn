@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://backgrounds/stars_small_1024.png" type="Texture" id=1]
 [ext_resource path="res://player.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://enemy.tscn" type="PackedScene" id=12]
 [ext_resource path="res://laser.gd" type="Script" id=13]
 [ext_resource path="res://laser.tscn" type="PackedScene" id=14]
+[ext_resource path="res://boss.tscn" type="PackedScene" id=15]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.054902, 1, 0, 1 )
@@ -49,7 +50,7 @@ texture = ExtResource( 10 )
 [node name="player" type="Area2D" parent="."]
 light_mask = 3
 position = Vector2( 222.843, 301.443 )
-rotation = -0.308923
+rotation = 0.0959931
 collision_mask = 2
 script = ExtResource( 2 )
 __meta__ = {
@@ -96,6 +97,7 @@ drag_margin_right = 0.0
 drag_margin_bottom = 0.0
 
 [node name="laser" parent="player" instance=ExtResource( 14 )]
+visible = true
 script = ExtResource( 13 )
 
 [node name="enemies" type="Node2D" parent="."]
@@ -111,6 +113,9 @@ wait_time = 10.0
 autostart = true
 script = ExtResource( 7 )
 Enemy = ExtResource( 11 )
+
+[node name="enemy" parent="enemies" instance=ExtResource( 15 )]
+position = Vector2( 2478.41, 891.699 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 

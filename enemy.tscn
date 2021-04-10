@@ -33,14 +33,14 @@ max_value = 200.0
 _data = [ Vector2( 0.0079561, 200 ), 0.0, 0.0, 0, 0, Vector2( 0.525052, -200 ), -289.802, 0.0, 0, 0 ]
 
 [node name="enemy" type="Area2D"]
-position = Vector2( 0.801025, -0.809296 )
+position = Vector2( 70.4779, 85.1907 )
 collision_layer = 2
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
 TURNING = 0.6
-FIRE_RATE = 0.01
+FIRE_RATE = 0.001
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/fade = SubResource( 1 )

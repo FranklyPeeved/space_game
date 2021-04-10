@@ -1,6 +1,7 @@
 extends Area2D
 
 var charge = 0.0
+export var DAMAGE = 5
 
 enum  {CHARGING, DISCHARGING}
 var laser = DISCHARGING
