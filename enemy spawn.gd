@@ -12,3 +12,4 @@ func _on_enemy_spawn_timeout():
 	if get_child_count() < MAX_ENEMIES && player.score <= MAX_SCORE && player.score >= MIN_SCORE:
 		var enemy = Enemy.instance()
 		add_child(enemy)
+		enemy.spawn()

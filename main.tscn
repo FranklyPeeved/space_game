@@ -114,6 +114,13 @@ autostart = true
 script = ExtResource( 7 )
 Enemy = ExtResource( 11 )
 
+[node name="enemy spawn3" type="Timer" parent="enemies"]
+autostart = true
+script = ExtResource( 7 )
+Enemy = ExtResource( 15 )
+MAX_ENEMIES = 1
+MIN_SCORE = 10
+
 [node name="enemy" parent="enemies" instance=ExtResource( 15 )]
 position = Vector2( 2478.41, 891.699 )
 
@@ -165,3 +172,4 @@ text = "0"
 [connection signal="area_entered" from="player" to="player" method="_on_player_area_entered"]
 [connection signal="timeout" from="enemies/enemy spawn" to="enemies/enemy spawn" method="_on_enemy_spawn_timeout"]
 [connection signal="timeout" from="enemies/enemy spawn2" to="enemies/enemy spawn2" method="_on_enemy_spawn_timeout"]
+[connection signal="timeout" from="enemies/enemy spawn3" to="enemies/enemy spawn3" method="_on_enemy_spawn_timeout"]
