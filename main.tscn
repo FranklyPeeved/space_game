@@ -120,6 +120,7 @@ script = ExtResource( 7 )
 Enemy = ExtResource( 15 )
 MAX_ENEMIES = 1
 MIN_SCORE = 10
+NUMBERTOSPAWN = 1
 
 [node name="enemy" parent="enemies" instance=ExtResource( 15 )]
 position = Vector2( 2478.41, 891.699 )
@@ -127,6 +128,7 @@ position = Vector2( 2478.41, 891.699 )
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="Light2D" type="Light2D" parent="HUD"]
+visible = false
 position = Vector2( 8393.3, 7025.85 )
 scale = Vector2( 16.3912, 13.7224 )
 texture = ExtResource( 8 )
@@ -169,6 +171,7 @@ margin_right = 50.0
 margin_bottom = -325.0
 custom_fonts/font = ExtResource( 9 )
 text = "0"
+
 [connection signal="area_entered" from="player" to="player" method="_on_player_area_entered"]
 [connection signal="timeout" from="enemies/enemy spawn" to="enemies/enemy spawn" method="_on_enemy_spawn_timeout"]
 [connection signal="timeout" from="enemies/enemy spawn2" to="enemies/enemy spawn2" method="_on_enemy_spawn_timeout"]

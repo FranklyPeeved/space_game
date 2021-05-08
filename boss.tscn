@@ -39,10 +39,10 @@ script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
-VELOCITY = 1500.0
-TURNING = 0.1
+VELOCITY = 500.0
+TURNING = 0.4
 FIRE_RATE = 0.001
-health = 5
+health = 50
 DAMAGE = 5
 
 [node name="F5S4" type="Sprite" parent="."]
@@ -84,5 +84,6 @@ polygon = PoolVector2Array( -145, -225.4, -145, -220.2, -141, -218.2, -141, -210
 
 [node name="boss spawner" type="Timer" parent="."]
 autostart = true
+
 [connection signal="area_entered" from="." to="." method="_on_enemy_area_entered"]
 [connection signal="timeout" from="boss spawner" to="." method="_on_boss_spawner_timeout"]
